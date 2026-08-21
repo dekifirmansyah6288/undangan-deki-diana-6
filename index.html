@@ -1,1 +1,440 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deki & Diana</title>
 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f4eee6;
+    color: #40372f;
+}
+
+.cover {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    background:
+        linear-gradient(rgba(45,35,25,.35), rgba(45,35,25,.45)),
+        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1600&auto=format&fit=crop')
+        center/cover;
+    color: white;
+}
+
+.cover-content {
+    max-width: 650px;
+}
+
+.small-title {
+    font-size: 13px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(65px, 12vw, 110px);
+    font-weight: 500;
+    line-height: .85;
+}
+
+.ampersand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 45px;
+    margin: 20px 0;
+}
+
+.date {
+    margin-top: 30px;
+    font-size: 14px;
+    letter-spacing: 3px;
+}
+
+.open-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 14px 30px;
+    border: 1px solid white;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    transition: .3s;
+}
+
+.open-btn:hover {
+    background: white;
+    color: #40372f;
+}
+
+section {
+    padding: 80px 25px;
+    text-align: center;
+}
+
+.intro {
+    background: #f8f3ed;
+}
+
+.label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: #9b8064;
+}
+
+.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.quote {
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.9;
+    font-size: 14px;
+}
+
+.names {
+    margin-top: 40px;
+}
+
+.name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+}
+
+.and {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    margin: 8px 0;
+}
+
+.event {
+    background: #e8ddd0;
+}
+
+.event-card {
+    max-width: 550px;
+    margin: auto;
+    background: #f9f5ef;
+    padding: 40px 25px;
+    border-radius: 5px;
+}
+
+.event-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.event-card p {
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.map-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 24px;
+    background: #40372f;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 12px;
+}
+
+.gallery {
+    background: #f8f3ed;
+}
+
+.gallery-box {
+    max-width: 850px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.gallery-box img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.countdown {
+    background: #40372f;
+    color: white;
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 35px;
+    flex-wrap: wrap;
+}
+
+.time-box {
+    min-width: 70px;
+}
+
+.time-box strong {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 500;
+}
+
+.time-box span {
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.rsvp {
+    background: #f8f3ed;
+}
+
+.wa-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 30px;
+    border-radius: 30px;
+    background: #40372f;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+footer {
+    padding: 35px;
+    text-align: center;
+    background: #40372f;
+    color: white;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+@media(max-width:600px) {
+    section {
+        padding: 65px 20px;
+    }
+
+    .gallery-box {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-box img {
+        height: 360px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- COVER -->
+<div class="cover">
+    <div class="cover-content">
+
+        <div class="small-title">The Wedding Of</div>
+
+        <h1>Deki</h1>
+
+        <div class="ampersand">&amp;</div>
+
+        <h1>Diana</h1>
+
+        <div class="date">
+            00 • 00 • 2026
+        </div>
+
+        <a href="#undangan" class="open-btn">
+            BUKA UNDANGAN
+        </a>
+
+    </div>
+</div>
+
+<!-- INTRO -->
+<section class="intro" id="undangan">
+
+    <div class="label">Assalamu'alaikum Warahmatullahi Wabarakatuh</div>
+
+    <h2 class="section-title">
+        Dengan Memohon Ridho Allah SWT
+    </h2>
+
+    <p class="quote">
+        Dengan penuh kebahagiaan, kami bermaksud mengundang
+        Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu
+        pada acara pernikahan kami.
+    </p>
+
+    <div class="names">
+        <div class="name">Deki Firmansyah</div>
+        <div class="and">&amp;</div>
+        <div class="name">Diana</div>
+    </div>
+
+</section>
+
+<!-- EVENT -->
+<section class="event">
+
+    <div class="label">Save The Date</div>
+
+    <h2 class="section-title">Akad & Resepsi</h2>
+
+    <div class="event-card">
+
+        <h3>00 Desember 2026</h3>
+
+        <p>
+            Pukul 08.00 WIB – selesai
+        </p>
+
+        <br>
+
+        <p>
+            Nama Gedung / Tempat Acara<br>
+            Alamat lengkap lokasi acara
+        </p>
+
+        <a href="#" class="map-btn">
+            LIHAT LOKASI
+        </a>
+
+    </div>
+
+</section>
+
+<!-- COUNTDOWN -->
+<section class="countdown">
+
+    <div class="label">Counting Down To Our Day</div>
+
+    <h2 class="section-title">Menuju Hari Bahagia</h2>
+
+    <div class="timer">
+
+        <div class="time-box">
+            <strong id="days">00</strong>
+            <span>HARI</span>
+        </div>
+
+        <div class="time-box">
+            <strong id="hours">00</strong>
+            <span>JAM</span>
+        </div>
+
+        <div class="time-box">
+            <strong id="minutes">00</strong>
+            <span>MENIT</span>
+        </div>
+
+        <div class="time-box">
+            <strong id="seconds">00</strong>
+            <span>DETIK</span>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+
+    <div class="label">Our Moment</div>
+
+    <h2 class="section-title">Gallery</h2>
+
+    <div class="gallery-box">
+
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop">
+
+        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=1000&auto=format&fit=crop">
+
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1000&auto=format&fit=crop">
+
+        <img src="https://images.unsplash.com/photo-1460978812857-470ed1c77af0?q=80&w=1000&auto=format&fit=crop">
+
+    </div>
+
+</section>
+
+<!-- RSVP -->
+<section class="rsvp">
+
+    <div class="label">Confirmation</div>
+
+    <h2 class="section-title">
+        Konfirmasi Kehadiran
+    </h2>
+
+    <p class="quote">
+        Merupakan suatu kehormatan dan kebahagiaan bagi kami
+        apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan
+        doa restu.
+    </p>
+
+    <a class="wa-btn"
+       href="https://wa.me/6280000000000?text=Assalamu%27alaikum%2C%20saya%20ingin%20mengkonfirmasi%20kehadiran%20untuk%20acara%20pernikahan%20Deki%20%26%20Diana."
+       target="_blank">
+        KONFIRMASI VIA WHATSAPP
+    </a>
+
+</section>
+
+<footer>
+    Deki &amp; Diana • 2026
+</footer>
+
+<script>
+
+const weddingDate = new Date("December 12, 2026 08:00:00").getTime();
+
+setInterval(function() {
+
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerHTML = days < 0 ? 0 : days;
+    document.getElementById("hours").innerHTML = hours < 0 ? 0 : hours;
+    document.getElementById("minutes").innerHTML = minutes < 0 ? 0 : minutes;
+    document.getElementById("seconds").innerHTML = seconds < 0 ? 0 : seconds;
+
+}, 1000);
+
+</script>
+
+</body>
+</html>
