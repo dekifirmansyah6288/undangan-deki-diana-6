@@ -3,15 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Deki & Diana</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
+:root {
+    --ivory: #f7f1e8;
+    --cream: #eee3d3;
+    --brown: #4b3b2d;
+    --gold: #a88a61;
+    --light-gold: #cbb895;
+    --white: #fffdf9;
+}
+
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -20,235 +30,383 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background: #f4eee6;
-    color: #40372f;
+    background: var(--ivory);
+    color: var(--brown);
+    overflow-x: hidden;
 }
+
+/* =========================
+   COVER
+========================= */
 
 .cover {
     min-height: 100vh;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 30px;
+    overflow: hidden;
+
     background:
-        linear-gradient(rgba(45,35,25,.35), rgba(45,35,25,.45)),
-        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1600&auto=format&fit=crop')
-        center/cover;
-    color: white;
+        radial-gradient(circle at 20% 20%, rgba(203,184,149,.30), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(168,138,97,.18), transparent 30%),
+        linear-gradient(135deg, #f8f3eb, #eee2d1);
+}
+
+/* decorative circles */
+
+.cover::before,
+.cover::after {
+    content: "";
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    border: 1px solid rgba(168,138,97,.35);
+    border-radius: 50%;
+}
+
+.cover::before {
+    top: -170px;
+    left: -170px;
+}
+
+.cover::after {
+    bottom: -170px;
+    right: -170px;
+}
+
+/* decorative lines */
+
+.decor {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 1px solid rgba(168,138,97,.45);
+    transform: rotate(45deg);
+}
+
+.decor.one {
+    top: 12%;
+    left: 10%;
+}
+
+.decor.two {
+    bottom: 12%;
+    right: 10%;
 }
 
 .cover-content {
-    max-width: 650px;
+    position: relative;
+    z-index: 2;
+    padding: 30px;
 }
 
 .small-title {
-    font-size: 13px;
-    letter-spacing: 5px;
+    font-size: 11px;
+    letter-spacing: 6px;
     text-transform: uppercase;
-    margin-bottom: 25px;
+    color: var(--gold);
+    margin-bottom: 28px;
 }
 
-h1 {
+.cover h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(65px, 12vw, 110px);
+    font-size: clamp(75px, 13vw, 125px);
+    line-height: .72;
     font-weight: 500;
-    line-height: .85;
+    color: var(--brown);
 }
 
 .ampersand {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 45px;
-    margin: 20px 0;
+    font-size: 48px;
+    color: var(--gold);
+    margin: 25px 0;
 }
 
-.date {
-    margin-top: 30px;
-    font-size: 14px;
-    letter-spacing: 3px;
+.cover-date {
+    margin-top: 35px;
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: var(--brown);
 }
 
 .open-btn {
     display: inline-block;
     margin-top: 40px;
-    padding: 14px 30px;
-    border: 1px solid white;
-    color: white;
+    padding: 14px 32px;
+    border: 1px solid var(--brown);
+    color: var(--brown);
     text-decoration: none;
-    border-radius: 30px;
-    font-size: 12px;
-    letter-spacing: 2px;
-    transition: .3s;
+    border-radius: 50px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    transition: .3s ease;
 }
 
 .open-btn:hover {
-    background: white;
-    color: #40372f;
+    background: var(--brown);
+    color: var(--ivory);
 }
 
+/* =========================
+   GENERAL
+========================= */
+
 section {
-    padding: 80px 25px;
+    padding: 90px 25px;
     text-align: center;
 }
 
-.intro {
-    background: #f8f3ed;
-}
-
 .label {
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 4px;
     text-transform: uppercase;
+    color: var(--gold);
     margin-bottom: 20px;
-    color: #9b8064;
 }
 
 .section-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 48px;
+    font-size: clamp(42px, 7vw, 60px);
     font-weight: 500;
     margin-bottom: 25px;
 }
 
-.quote {
+.divider {
+    width: 70px;
+    height: 1px;
+    background: var(--gold);
+    margin: 25px auto;
+}
+
+.description {
     max-width: 600px;
     margin: auto;
-    line-height: 1.9;
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 2;
+    font-weight: 300;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+    background: var(--white);
 }
 
 .names {
-    margin-top: 40px;
+    margin-top: 45px;
 }
 
 .name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 42px;
+    font-size: clamp(38px, 7vw, 55px);
+    font-weight: 500;
 }
 
 .and {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    margin: 8px 0;
+    font-size: 30px;
+    color: var(--gold);
+    margin: 5px 0;
 }
 
+/* =========================
+   EVENT
+========================= */
+
 .event {
-    background: #e8ddd0;
+    background: var(--cream);
+}
+
+.event-wrapper {
+    max-width: 850px;
+    margin: 45px auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
 }
 
 .event-card {
-    max-width: 550px;
-    margin: auto;
-    background: #f9f5ef;
-    padding: 40px 25px;
-    border-radius: 5px;
+    background: rgba(255,255,255,.55);
+    border: 1px solid rgba(168,138,97,.35);
+    padding: 45px 25px;
 }
 
 .event-card h3 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 32px;
+    font-size: 35px;
+    font-weight: 500;
     margin-bottom: 15px;
 }
 
+.event-card .time {
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
 .event-card p {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.9;
 }
 
 .map-btn {
     display: inline-block;
     margin-top: 25px;
-    padding: 12px 24px;
-    background: #40372f;
+    padding: 11px 22px;
+    background: var(--brown);
     color: white;
     text-decoration: none;
-    border-radius: 25px;
-    font-size: 12px;
+    border-radius: 30px;
+    font-size: 9px;
+    letter-spacing: 2px;
 }
 
-.gallery {
-    background: #f8f3ed;
-}
-
-.gallery-box {
-    max-width: 850px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-}
-
-.gallery-box img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-}
+/* =========================
+   COUNTDOWN
+========================= */
 
 .countdown {
-    background: #40372f;
-    color: white;
+    background: var(--brown);
+    color: var(--ivory);
+}
+
+.countdown .label {
+    color: var(--light-gold);
+}
+
+.countdown .section-title {
+    color: var(--ivory);
 }
 
 .timer {
+    max-width: 650px;
+    margin: 45px auto 0;
     display: flex;
     justify-content: center;
-    gap: 25px;
-    margin-top: 35px;
-    flex-wrap: wrap;
+    gap: 35px;
 }
 
 .time-box {
-    min-width: 70px;
+    min-width: 80px;
 }
 
 .time-box strong {
     display: block;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 42px;
+    font-size: 50px;
     font-weight: 500;
+    color: var(--light-gold);
 }
 
 .time-box span {
-    font-size: 9px;
-    letter-spacing: 2px;
+    font-size: 8px;
+    letter-spacing: 3px;
 }
 
+/* =========================
+   QUOTE
+========================= */
+
+.quote-section {
+    background: var(--white);
+}
+
+.quote {
+    max-width: 650px;
+    margin: auto;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+.quote-author {
+    margin-top: 25px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold);
+}
+
+/* =========================
+   RSVP
+========================= */
+
 .rsvp {
-    background: #f8f3ed;
+    background: var(--cream);
 }
 
 .wa-btn {
     display: inline-block;
-    margin-top: 25px;
+    margin-top: 30px;
     padding: 14px 30px;
-    border-radius: 30px;
-    background: #40372f;
+    background: var(--brown);
     color: white;
     text-decoration: none;
-    font-size: 12px;
-    letter-spacing: 1px;
-}
-
-footer {
-    padding: 35px;
-    text-align: center;
-    background: #40372f;
-    color: white;
-    font-size: 11px;
+    border-radius: 30px;
+    font-size: 10px;
     letter-spacing: 2px;
 }
 
-@media(max-width:600px) {
-    section {
-        padding: 65px 20px;
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 45px 20px;
+    text-align: center;
+    background: var(--brown);
+    color: var(--ivory);
+}
+
+.footer-names {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+}
+
+.footer-date {
+    margin-top: 12px;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--light-gold);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+    .decor.one {
+        left: -60px;
     }
 
-    .gallery-box {
+    .decor.two {
+        right: -60px;
+    }
+
+    .event-wrapper {
         grid-template-columns: 1fr;
     }
 
-    .gallery-box img {
-        height: 360px;
+    .timer {
+        gap: 15px;
+    }
+
+    .time-box {
+        min-width: 65px;
+    }
+
+    .time-box strong {
+        font-size: 38px;
+    }
+
+    .quote {
+        font-size: 21px;
     }
 }
 </style>
@@ -256,20 +414,31 @@ footer {
 
 <body>
 
-<!-- COVER -->
-<div class="cover">
+<!-- =========================
+     COVER
+========================= -->
+
+<section class="cover">
+
+    <div class="decor one"></div>
+    <div class="decor two"></div>
+
     <div class="cover-content">
 
-        <div class="small-title">The Wedding Of</div>
+        <div class="small-title">
+            The Wedding Of
+        </div>
 
         <h1>Deki</h1>
 
-        <div class="ampersand">&amp;</div>
+        <div class="ampersand">
+            &amp;
+        </div>
 
         <h1>Diana</h1>
 
-        <div class="date">
-            00 • 00 • 2026
+        <div class="cover-date">
+            06 • 09 • 2026
         </div>
 
         <a href="#undangan" class="open-btn">
@@ -277,67 +446,141 @@ footer {
         </a>
 
     </div>
-</div>
 
-<!-- INTRO -->
+</section>
+
+
+<!-- =========================
+     INTRO
+========================= -->
+
 <section class="intro" id="undangan">
 
-    <div class="label">Assalamu'alaikum Warahmatullahi Wabarakatuh</div>
+    <div class="label">
+        Assalamu'alaikum Warahmatullahi Wabarakatuh
+    </div>
 
     <h2 class="section-title">
         Dengan Memohon Ridho Allah SWT
     </h2>
 
-    <p class="quote">
-        Dengan penuh kebahagiaan, kami bermaksud mengundang
-        Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu
-        pada acara pernikahan kami.
+    <div class="divider"></div>
+
+    <p class="description">
+        Dengan memohon rahmat dan ridho Allah SWT,
+        kami bermaksud mengundang Bapak/Ibu/Saudara/i
+        untuk hadir dalam acara pernikahan kami
+        serta memberikan doa dan restu.
     </p>
 
     <div class="names">
-        <div class="name">Deki Firmansyah</div>
-        <div class="and">&amp;</div>
-        <div class="name">Diana</div>
+
+        <div class="name">
+            Deki Firmansyah
+        </div>
+
+        <div class="and">
+            &amp;
+        </div>
+
+        <div class="name">
+            Diana
+        </div>
+
     </div>
 
 </section>
 
-<!-- EVENT -->
+
+<!-- =========================
+     EVENT
+========================= -->
+
 <section class="event">
 
-    <div class="label">Save The Date</div>
+    <div class="label">
+        Save The Date
+    </div>
 
-    <h2 class="section-title">Akad & Resepsi</h2>
+    <h2 class="section-title">
+        Acara Pernikahan
+    </h2>
 
-    <div class="event-card">
+    <div class="divider"></div>
 
-        <h3>00 Desember 2026</h3>
+    <div class="event-wrapper">
 
-        <p>
-            Pukul 08.00 WIB – selesai
-        </p>
+        <div class="event-card">
 
-        <br>
+            <h3>Akad Nikah</h3>
 
-        <p>
-            Nama Gedung / Tempat Acara<br>
-            Alamat lengkap lokasi acara
-        </p>
+            <div class="time">
+                Minggu, 06 September 2026
+            </div>
 
-        <a href="#" class="map-btn">
-            LIHAT LOKASI
-        </a>
+            <p>
+                Pukul 08.00 WIB<br>
+                sampai selesai
+            </p>
+
+            <br>
+
+            <p>
+                Nama Tempat Acara<br>
+                Alamat lengkap acara
+            </p>
+
+            <a href="#" class="map-btn">
+                LIHAT LOKASI
+            </a>
+
+        </div>
+
+
+        <div class="event-card">
+
+            <h3>Resepsi</h3>
+
+            <div class="time">
+                Minggu, 06 September 2026
+            </div>
+
+            <p>
+                Pukul 11.00 WIB<br>
+                sampai selesai
+            </p>
+
+            <br>
+
+            <p>
+                Nama Tempat Acara<br>
+                Alamat lengkap acara
+            </p>
+
+            <a href="#" class="map-btn">
+                LIHAT LOKASI
+            </a>
+
+        </div>
 
     </div>
 
 </section>
 
-<!-- COUNTDOWN -->
+
+<!-- =========================
+     COUNTDOWN
+========================= -->
+
 <section class="countdown">
 
-    <div class="label">Counting Down To Our Day</div>
+    <div class="label">
+        Counting Down To Our Day
+    </div>
 
-    <h2 class="section-title">Menuju Hari Bahagia</h2>
+    <h2 class="section-title">
+        Menuju Hari Bahagia
+    </h2>
 
     <div class="timer">
 
@@ -365,72 +608,143 @@ footer {
 
 </section>
 
-<!-- GALLERY -->
-<section class="gallery">
 
-    <div class="label">Our Moment</div>
+<!-- =========================
+     QUOTE
+========================= -->
 
-    <h2 class="section-title">Gallery</h2>
+<section class="quote-section">
 
-    <div class="gallery-box">
+    <div class="label">
+        Our Beginning
+    </div>
 
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop">
+    <div class="divider"></div>
 
-        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=1000&auto=format&fit=crop">
+    <p class="quote">
+        "Dan di antara tanda-tanda kekuasaan-Nya ialah
+        Dia menciptakan untukmu pasangan-pasangan dari
+        jenismu sendiri, supaya kamu cenderung dan merasa
+        tenteram kepadanya."
+    </p>
 
-        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1000&auto=format&fit=crop">
-
-        <img src="https://images.unsplash.com/photo-1460978812857-470ed1c77af0?q=80&w=1000&auto=format&fit=crop">
-
+    <div class="quote-author">
+        QS. AR-RUM : 21
     </div>
 
 </section>
 
-<!-- RSVP -->
+
+<!-- =========================
+     RSVP
+========================= -->
+
 <section class="rsvp">
 
-    <div class="label">Confirmation</div>
+    <div class="label">
+        Confirmation
+    </div>
 
     <h2 class="section-title">
         Konfirmasi Kehadiran
     </h2>
 
-    <p class="quote">
+    <div class="divider"></div>
+
+    <p class="description">
         Merupakan suatu kehormatan dan kebahagiaan bagi kami
-        apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan
-        doa restu.
+        apabila Bapak/Ibu/Saudara/i berkenan hadir
+        dan memberikan doa restu.
     </p>
 
-    <a class="wa-btn"
-       href="https://wa.me/6280000000000?text=Assalamu%27alaikum%2C%20saya%20ingin%20mengkonfirmasi%20kehadiran%20untuk%20acara%20pernikahan%20Deki%20%26%20Diana."
-       target="_blank">
+    <a
+        class="wa-btn"
+        href="https://wa.me/6280000000000?text=Assalamu%27alaikum%2C%20saya%20ingin%20mengkonfirmasi%20kehadiran%20untuk%20acara%20pernikahan%20Deki%20%26%20Diana."
+        target="_blank">
+
         KONFIRMASI VIA WHATSAPP
+
     </a>
 
 </section>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
-    Deki &amp; Diana • 2026
+
+    <div class="footer-names">
+        Deki &amp; Diana
+    </div>
+
+    <div class="footer-date">
+        06 SEPTEMBER 2026
+    </div>
+
 </footer>
+
 
 <script>
 
-const weddingDate = new Date("December 12, 2026 08:00:00").getTime();
+/* =========================
+   COUNTDOWN
+========================= */
 
-setInterval(function() {
+const weddingDate =
+    new Date("September 6, 2026 08:00:00").getTime();
+
+const countdown = setInterval(function () {
 
     const now = new Date().getTime();
+
     const distance = weddingDate - now;
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    if (distance <= 0) {
 
-    document.getElementById("days").innerHTML = days < 0 ? 0 : days;
-    document.getElementById("hours").innerHTML = hours < 0 ? 0 : hours;
-    document.getElementById("minutes").innerHTML = minutes < 0 ? 0 : minutes;
-    document.getElementById("seconds").innerHTML = seconds < 0 ? 0 : seconds;
+        clearInterval(countdown);
+
+        document.getElementById("days").innerHTML = "00";
+        document.getElementById("hours").innerHTML = "00";
+        document.getElementById("minutes").innerHTML = "00";
+        document.getElementById("seconds").innerHTML = "00";
+
+        return;
+    }
+
+    const days =
+        Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    const hours =
+        Math.floor(
+            (distance % (1000 * 60 * 60 * 24))
+            / (1000 * 60 * 60)
+        );
+
+    const minutes =
+        Math.floor(
+            (distance % (1000 * 60 * 60))
+            / (1000 * 60)
+        );
+
+    const seconds =
+        Math.floor(
+            (distance % (1000 * 60))
+            / 1000
+        );
+
+    document.getElementById("days").innerHTML =
+        String(days).padStart(2, "0");
+
+    document.getElementById("hours").innerHTML =
+        String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").innerHTML =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").innerHTML =
+        String(seconds).padStart(2, "0");
 
 }, 1000);
 
